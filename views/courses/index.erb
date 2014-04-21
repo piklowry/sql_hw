@@ -1,0 +1,45 @@
+<div class="" align="center">
+ <a href="/courses/new" align="center">
+ <br> 
+ <br> 
+
+
+  <button type="button" href="/courses/edit" class="btn btn-primary btn-lg" align="center">Create New</button>
+ </a>
+</div>
+
+</br>
+
+
+
+<h1 class="" align="center">LIST OF COURSES</H1>
+
+
+<!-- //starting loop through courses db  -->
+
+ <div class="row marketing">
+   <div class="col-lg-9">
+     <table class="table">    
+       <% @all_courses.each do |m| %>
+        <tr class= "">
+				<td class="success"><%= m.name %></td>
+				<td class="success"><%= m.department %></td>
+				<td class="success"><%= m.class_id %>
+				<a href="/courses/<%= m.id %>/edit">Delete<br></a></td>
+       <% end %>
+     </table>
+   </div>
+ </div>
+
+<!-- this begins the eidt, create new, and delete buttons -->
+
+<div class="" align="center">
+ <a href="/courses/edit" align="center">
+  <button type="button" href="/courses/edit" class="btn btn-primary btn-lg" align="center">Create New</button>
+ </a>
+</div>
+
+</br>
+
+
+

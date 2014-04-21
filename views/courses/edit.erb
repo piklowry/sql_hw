@@ -1,0 +1,18 @@
+<h3 class"h3" align="center"> You are About to Delete the Record  </h3>
+<h1 class="" align="center"><%= @course_open.name %></h1>
+
+
+		<form action="/courses/<%= @course_open.id %>" method="post" align="center">
+			<input type="hidden" id="course_name" name="course[name]">
+			<!-- <input type="submit">
+			<input type="hidden" name="_method" value="put"> -->
+		</form>
+		<br>
+
+
+
+
+	<form action="/courses/<%= @course_open.id %>" method="post" align="center">
+			<input type="hidden" name="_method" value="delete" />
+			<input type="submit" value="Delete"/>
+	</form>

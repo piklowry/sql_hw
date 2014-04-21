@@ -1,0 +1,247 @@
+<div class="row marketing">
+   <div class="col-lg-9">
+     <table class="table">    
+       <% @course.each do |m| %>
+        <tr class= "">
+        <td class="success"><%= m.name %></td>
+        <td class="success"><%= m.department %></td>
+        <td class="success"><%= m.class_id %>
+        <a href="/courses/<%= m.id %>/edit">Delete<br></a></td>
+       <% end %>
+     </table>
+   </div>
+ </div>
+
+
+
+
+# post "/courses/show" do
+#   @course = Course.find(params[:name])
+#   @course.update_attributes(params[:name])
+#   redirect "/courses/show"
+# end
+
+
+
+post "/courses/show" do
+  @course = Course.find(params[:course])
+  @course = Course.find_by_sql("SELECT * FROM courses
+  INNER JOIN professors ON courses.class_id = professors.class_id
+  INNER JOIN subjects ON professors.class_id = subjects.class_id")
+  erb :"/courses/show"
+end
+
+
+# post "/courses/show" do
+# @course = Course.find(params[:course])
+#   @course = Course.find(params[:name])
+#   @course.update_attributes(params[:name])
+#   redirect "/courses/show"
+# end
+
+
+<%= @course %>
+<br>
+
+<h2 class"h3" align="center"> Find Out More Information </h2>
+<h2 class"h2" align="center"> About Your Course!  </h2>
+<br>
+
+<h3 class"h3" align="center"> Enter A new School! </h3>
+  <form action="/courses/show" method="post" align="center">
+    <input type="text" placeholder="name" class="form-control" id="courses_name" name="course[name]"><br>
+    <br><input type="submit" value="Submit" class="form-control">
+    </form>
+   <br>
+  <br>
+
+
+c
+
+
+get "/courses/show" do
+
+<div class="row marketing">
+   <div class="col-lg-9">
+     <table class="table">    
+       <% @course.each do |m| %>
+        <tr class= "">
+        <td class="success"><%= m.name %></td>
+        <td class="success"><%= m.department %></td>
+        <td class="success"><%= m.class_id %>
+        <a href="/courses/<%= m.id %>/edit">Delete<br></a></td>
+       <% end %>
+     </table>
+   </div>
+ </div>
+@course = Course.find_by_sql("SELECT * FROM courses
+  INNER JOIN professors ON courses.class_id = professors.class_id
+  INNER JOIN subjects ON professors.class_id = subjects.class_id")
+  erb :"/courses/show"
+end
+
+
+# <%= @course_to_show.id %>
+
+
+# # post "/courses/show" do
+# #     Course.all(
+# #       :joins => :professors,
+#       :conditions => {:professors=> {:class_id => params[:class_id]},
+#       :group => "course.class_id"
+#     erb :"/courses/show"
+# end
+# :having => "count(courses.id) >= %i" % params[:class_id][key].size,
+# post "/courses/show" do
+#   puts params
+#     Course.all(
+#       :joins => :professors,
+      
+#       :conditions => {:professors=> {:class_id => params[:class_id][key]}},
+#       :group => "course.class_id",
+#       :having => "count(courses.id) >= %i" % params[:class_id][key].size,
+#       )
+#     erb :"/courses/show"
+# end
+
+
+get "/courses/show" do
+  @course_to_show = Course.find(params[:id])
+  @professor_id = Course.find(params[:id]).name
+  @professor_name = Professor.find(professor_id).department
+  erb :"/courses/show"
+end
+
+
+<%= @course_to_show.id %>
+
+
+
+
+
+
+# post "/courses/target" do
+# 	puts params.inspect
+# 	@course = Course.new(params[:course])
+#   if @course.save
+#     redirect "/courses/main"
+#   else
+#     erb :"/courses/new"
+#   end
+# end
+
+# post "/courses/show" do
+# 	@course_new = Course.where(params[:id])
+# 	@course_id = @course_new.find(params[:id])
+# 	@
+# 	puts params.inspect
+# 	erb :"/courses/show"
+# end
+
+# post "/courses/show" do
+# 	  @course =  Course.all(params[:class_id])
+# 	  @course.joins(:professors => :class_id).joins(:subjects => :class_id).where("professors.  class_id = ?", "%#{class_id}%")
+# 		erb :"/courses/show"
+# end
+
+
+
+# def self.search(search)
+#     if search
+#       find(:all, :conditions => ['address LIKE ?', "%#{search}%"])
+#     else
+#       find(:all)
+#     end
+#   end
+
+# post "/courses/target" do
+# 	puts params.inspect
+# 	@course = Course.new(params[:course])
+#   if @course.save
+#     redirect "/courses/main"
+#   else
+#     erb :"/courses/new"
+#   end
+# end
+
+# post "/courses/target" do
+# 	@new_post = Course.new
+# 	@new_post.name = params[:title]
+# 	@new_post.description = params[:description]
+# 	erb :"courses/show"
+# end
+
+
+
+
+
+# this ends new form
+
+# this will be be my edit section
+
+
+# put "/courses/:id" do
+# 	@course = Course.find(params[:id])
+# 	@course.update_attributes(params[:name])
+# 	redirect "/courses/main"
+# end
+
+
+
+
+
+<!-- 
+<div class="wrap">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	 <div class="navbar-header">
+	 </div>
+   <div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav"></ul>
+		<div class="col-sm-3 col-md-3 pull-right">
+       
+		
+		<!-- /.container -->
+
+			<div class="collapse navbar-collapse">
+		
+		<ul class="nav navbar-nav">
+			<li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">Courses<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              	<li role="presentation"><a role="menuitem" tabindex="-1" href="/courses/main">All Courses</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/courses/new">Create New</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/courses/edit">Edit</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/courses/show">Delete</a></li>
+              </ul>
+            </li>
+			<li class="dropdown">
+              <a href="/subjects/main" class="dropdown-toggle" data-toggle="dropdown">Subjects<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                	<li role="presentation"><a role="menuitem" tabindex="-1" href="/subjects/main">All Subjects</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/subjects/new">Create New</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/subjects/edit">Edit</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/subjects/show">Delete</a></li>
+          
+              </ul>
+            </li>
+
+
+            <ul class="nav navbar-nav">
+			<li class="dropdown">
+              <a href="/professors/main" class="dropdown-toggle" data-toggle="dropdown">Professors<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              	<li role="presentation"><a  href="/professors/main">All Professors</a></li>
+                <li role="presentation"><a  href="/professors/new">Create New</a></li>
+                <li role="presentation"><a href="/professors/edit">Edit</a></li>
+                <li role="presentation"><a href="/professors/show">Delete</a></li>
+              </ul>
+            </li>
+		</ul>
+
+
+    <div class="" align="center">
+ <a href="/courses/edit" align="center">
+  <button type="button" href="/courses/edit" class="btn btn-primary btn-lg" align="center">Delete</button>
+  <button type="button" class="btn btn-primary btn-lg ">Edit</button>
+ </a>
+</div>

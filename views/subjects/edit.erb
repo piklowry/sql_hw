@@ -1,0 +1,26 @@
+<h3 class"h3" align="center"> You are About to Delete the Record </h3>
+ <h1 class="" align="center"><%= @subject_open.name %></h1>
+	<form action="/subjects/<%= @subject_open.id %>" method="post" align="center">
+		<input type="hidden" id="subject_name" name="subject[name]">
+	</form>
+  <form action="/subjects/<%= @subject_open.id %>" method="post" align="center">
+		<input type="hidden" name="_method" value="delete" />
+		<input type="submit" value="Delete"/>
+	</form>
+
+
+<!-- 	<h3 class"h3" align="center"> You are About to Delete </h3>
+ <h1 class="" align="center"><%= @subject_open.name %></h1>
+	<form action="/subjects/<%= @subject_open.id %>" method="post">
+		<input type="text" id="subject_name" name="subject[name]">
+		<input type="submit">
+		<input type="hidden" name="_method" value="put">
+	</form>
+
+
+
+
+	<form action="/subjects/<%= @subject_open.id %>" method="post">
+			<input type="hidden" name="_method" value="delete" />
+			<input type="submit" value="Delete"/>
+	</form> -->

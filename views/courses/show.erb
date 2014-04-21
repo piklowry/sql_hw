@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+<!-- <form action="/courses/show" method="post" align="center" width="500px">
+<select class="something">
+  <option value="" type="text" id="courses_class_id" name="[<%= @course %>]"] >Marketing</option>
+  <option value="Science" id="courses_class_id" name="course[class_id]" >Science</option>
+  <option value="Mathematics" id="courses_class_id" name="course[class_id]">Mathematics</option>
+  <option value="Business" id="courses_class_id" name="course[class_id]">Business</option>
+</select>
+<br>
+
+<br><input type="submit" value="Submit" >
+</form>
+   <br>
+  <br>
+<br>
+ -->
+
+
+
+ <div class="row marketing">
+   <div class="col-lg-9">
+     <table class="table">    
+       <% @course.each do |m| %>
+        <tr class= "">
+				<td class="success"><%= m.name %></td>
+				<td class="success"><%= m.department %></td>
+				<td class="success"><%= m.class_id %>
+				<a href="/courses/<%= m.id %>/edit">Delete<br></a></td>
+       <% end %>
+     </table>
+   </div>
+ </div>
+
+
+
+
+
+
